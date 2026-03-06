@@ -18,13 +18,45 @@ const boxes = [
 export default function MaskVideo() {
   const videoRef = useRef(null);
   const maskRefs = useRef([]);
-  const heroRef = useRef(null);   
+  const heroRef = useRef(null);
 
   useEffect(() => {
     const video = videoRef.current;
     const masks = maskRefs.current;
 
+    const coords = document.querySelector(".cursor-coords");
+const xLabel = document.querySelector(".coord-x");
+const yLabel = document.querySelector(".coord-y");
+
+function handleMouseMove(e){
+
+  const heroRect = heroRef.current.getBoundingClientRect();
+
+  // check if cursor inside hero + navbar area
+  if(
+    e.clientY < heroRect.bottom
+  ){
+
+    coords.style.display = "block";
+
+    coords.style.left = e.clientX + 12 + "px";
+    coords.style.top = e.clientY + 12 + "px";
+
+    xLabel.textContent = "X: " + Math.round(e.clientX) + "px";
+    yLabel.textContent = "Y: " + Math.round(e.clientY) + "px";
+
+  }else{
+    coords.style.display = "none";
+  }
+}
+
+window.addEventListener("mousemove", handleMouseMove);
+
+
+
     let animationFrameId;
+
+    
 
     function drawClipped(ctx, video, rect) {
       const videoAspect = video.videoWidth / video.videoHeight;
@@ -87,36 +119,48 @@ export default function MaskVideo() {
     }
 
     function init() {
-  video.play();
-  render();
+      video.play();
+      render();
 
-  masks.forEach(mask => {
-    const rect = mask.getBoundingClientRect();
+      const navbarHeight = 80;
 
-    const maxX = window.innerWidth - rect.width;
-    const maxY = window.innerHeight - rect.height;
+      masks.forEach((mask) => {
+        const rect = mask.getBoundingClientRect();
 
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
+        const maxX = window.innerWidth - rect.width;
+        const maxY = window.innerHeight - rect.height - navbarHeight;
 
-    gsap.set(mask, {
-      x: randomX,
-      y: randomY
-    });
-  });
+        const randomX = Math.random() * maxX;
 
-  Draggable.create(masks, {
-    type: "x,y",
-    bounds: heroRef.current,
-    edgeResistance: 0.9,
-    inertia: false,
-    onDrag() {
-      const label = this.target.querySelector(".coord-label");
-      label.textContent = `X: ${Math.round(this.x)}  Y: ${Math.round(this.y)}`;
+        // navbar ke niche spawn
+        const randomY = Math.random() * maxY + navbarHeight;
+
+        gsap.set(mask, {
+          x: randomX,
+          y: randomY,
+        });
+      });
+
+      Draggable.create(masks, {
+        type: "x,y",
+
+        bounds: heroRef.current,
+
+        edgeResistance: 0.9,
+        inertia: false,
+
+        onDrag() {
+          // navbar ke upar jaane se rokna
+          if (this.y < navbarHeight) {
+            this.y = navbarHeight;
+            gsap.set(this.target, { y: navbarHeight });
+          }
+
+          const label = this.target.querySelector(".coord-label");
+          label.textContent = `X: ${Math.round(this.x)}  Y: ${Math.round(this.y)}`;
+        },
+      });
     }
-  });
-}
-
 
     if (video.readyState >= 2) {
       init();
@@ -127,6 +171,12 @@ export default function MaskVideo() {
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
+
+
+    // cursor 
+
+    
+
   }, []);
 
   const addMaskRef = (el) => {
@@ -156,11 +206,11 @@ export default function MaskVideo() {
 
   return (
     <div ref={heroRef} className="hero">
-
-      <Navbar/>
+      <div className="hero-corners"></div>
+      <Navbar />
       <video
         ref={videoRef}
-        src={videoSrc}
+        // src={videoSrc}
         muted
         loop
         style={{ display: "none" }}
@@ -176,10 +226,16 @@ export default function MaskVideo() {
             height: box.height,
           }}
         >
+          <div className="corners"></div>
           <div className="coord-label">X: 0 Y: 0</div>
           <canvas />
         </div>
       ))}
+
+      <div className="cursor-coords">
+        <div className="coord-x">X: 0px</div>
+        <div className="coord-y">Y: 0px</div>
+      </div>
     </div>
   );
 }
