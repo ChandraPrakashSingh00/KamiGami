@@ -210,7 +210,7 @@ window.addEventListener("mousemove", handleMouseMove);
       <Navbar />
       <video
         ref={videoRef}
-        // src={videoSrc}
+        src={videoSrc}
         muted
         loop
         style={{ display: "none" }}

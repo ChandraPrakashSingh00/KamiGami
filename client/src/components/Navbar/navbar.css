@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "bytes";
+  src: url("../../assets/fonts/BYTES.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 .navbar{
   position:absolute;
   top:0;
@@ -27,6 +36,7 @@
 
 .nav-left a{
   cursor:pointer;
+  font-family: "bytes", sans-serif;
 }
 
 
