@@ -1,0 +1,44 @@
+.product-section{
+  background:#000;
+  min-height:100vh;
+  padding:40px 60px;
+}
+
+
+.filter-bar{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#d1d5db;
+  margin-bottom:25px;
+  cursor:pointer;
+}
+
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+
+@media (max-width:1024px){
+
+  .product-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media (max-width:600px){
+
+  .product-section{
+    padding:30px 20px;
+  }
+
+  .product-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+}
