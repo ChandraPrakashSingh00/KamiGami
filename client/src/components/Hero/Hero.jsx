@@ -24,39 +24,52 @@ export default function MaskVideo() {
     const video = videoRef.current;
     const masks = maskRefs.current;
 
+    let isDragging = false;
+
     const coords = document.querySelector(".cursor-coords");
-const xLabel = document.querySelector(".coord-x");
-const yLabel = document.querySelector(".coord-y");
+    const xLabel = document.querySelector(".coord-x");
+    const yLabel = document.querySelector(".coord-y");
 
-function handleMouseMove(e){
+    const grabText = document.querySelector(".coord-grab");
 
-  const heroRect = heroRef.current.getBoundingClientRect();
+    maskRefs.current.forEach((mask) => {
+      mask.addEventListener("mouseenter", () => {
+        if (!isDragging) {
+          grabText.style.display = "block";
+          xLabel.style.display = "none";
+          yLabel.style.display = "none";
+        }
+      });
 
-  // check if cursor inside hero + navbar area
-  if(
-    e.clientY < heroRect.bottom
-  ){
+      mask.addEventListener("mouseleave", () => {
+        if (!isDragging) {
+          grabText.style.display = "none";
+          xLabel.style.display = "block";
+          yLabel.style.display = "block";
+        }
+      });
+    });
 
-    coords.style.display = "block";
+    function handleMouseMove(e) {
+      const heroRect = heroRef.current.getBoundingClientRect();
 
-    coords.style.left = e.clientX + 12 + "px";
-    coords.style.top = e.clientY + 12 + "px";
+      // check if cursor inside hero + navbar area
+      if (e.clientY < heroRect.bottom) {
+        coords.style.display = "block";
 
-    xLabel.textContent = "X: " + Math.round(e.clientX) + "px";
-    yLabel.textContent = "Y: " + Math.round(e.clientY) + "px";
+        coords.style.left = e.clientX + 12 + "px";
+        coords.style.top = e.clientY + 12 + "px";
 
-  }else{
-    coords.style.display = "none";
-  }
-}
+        xLabel.textContent = "X: " + Math.round(e.clientX) + "px";
+        yLabel.textContent = "Y: " + Math.round(e.clientY) + "px";
+      } else {
+        coords.style.display = "none";
+      }
+    }
 
-window.addEventListener("mousemove", handleMouseMove);
-
-
+    window.addEventListener("mousemove", handleMouseMove);
 
     let animationFrameId;
-
-    
 
     function drawClipped(ctx, video, rect) {
       const videoAspect = video.videoWidth / video.videoHeight;
@@ -143,14 +156,27 @@ window.addEventListener("mousemove", handleMouseMove);
 
       Draggable.create(masks, {
         type: "x,y",
-
         bounds: heroRef.current,
-
         edgeResistance: 0.9,
         inertia: false,
 
+        onPress() {
+          isDragging = true;
+
+          xLabel.style.display = "none";
+          yLabel.style.display = "none";
+          grabText.style.display = "block";
+        },
+
+        onRelease() {
+          isDragging = false;
+
+          grabText.style.display = "none";
+          xLabel.style.display = "block";
+          yLabel.style.display = "block";
+        },
+
         onDrag() {
-          // navbar ke upar jaane se rokna
           if (this.y < navbarHeight) {
             this.y = navbarHeight;
             gsap.set(this.target, { y: navbarHeight });
@@ -170,13 +196,10 @@ window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
 
-
-    // cursor 
-
-    
-
+    // cursor
   }, []);
 
   const addMaskRef = (el) => {
@@ -235,6 +258,7 @@ window.addEventListener("mousemove", handleMouseMove);
       <div className="cursor-coords">
         <div className="coord-x">X: 0px</div>
         <div className="coord-y">Y: 0px</div>
+        <div className="coord-grab">Grab</div>
       </div>
     </div>
   );

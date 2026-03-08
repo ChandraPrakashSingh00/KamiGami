@@ -159,6 +159,10 @@ canvas {
   color: white;
 }
 
+.coord-grab{
+  display:none;
+}
+
 /* .cursor-coords div{
   background: rgba(0,0,0,0.7);
   padding: 3px 6px;
