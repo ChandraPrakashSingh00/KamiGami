@@ -4,6 +4,8 @@ import gsap from "gsap";
 import Draggable from "gsap/dist/Draggable";
 import videoSrc from "../../assets/videos/1.mp4";
 import Navbar from "../Navbar/Navbar";
+import Product from "../../pages/ProductPages/Product";
+import HeroSlider from "../../pages/HeroSlider/HeroSlider";
 
 gsap.registerPlugin(Draggable);
 
@@ -205,6 +207,8 @@ window.addEventListener("mousemove", handleMouseMove);
   };
 
   return (
+
+    <>
     <div ref={heroRef} className="hero">
       <div className="hero-corners"></div>
       <Navbar />
@@ -237,5 +241,10 @@ window.addEventListener("mousemove", handleMouseMove);
         <div className="coord-y">Y: 0px</div>
       </div>
     </div>
+    <HeroSlider/>
+<Product/>
+
+
+    </>
   );
 }
