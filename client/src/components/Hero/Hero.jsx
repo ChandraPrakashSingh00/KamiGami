@@ -6,6 +6,7 @@ import videoSrc from "../../assets/videos/1.mp4";
 import Navbar from "../Navbar/Navbar";
 import Product from "../../pages/ProductPages/Product";
 import HeroSlider from "../../pages/HeroSlider/HeroSlider";
+import HeroFooter from '../../pages/HeroFooter/HeroFooter'
 
 gsap.registerPlugin(Draggable);
 
@@ -243,6 +244,7 @@ window.addEventListener("mousemove", handleMouseMove);
     </div>
     <HeroSlider/>
 <Product/>
+<HeroFooter/>
 
 
     </>
