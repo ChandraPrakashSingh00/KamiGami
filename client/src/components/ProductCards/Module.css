@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "exorxista";
+  src: url("../../assets/fonts/Exorcista_-Jed_40.ttf");
+}
+
+@font-face {
+  font-family: "gothica";
+  src: url("../../assets/fonts/Gothica-Bold.ttf");
+}
 
 .product-card{
   background:#192322;
@@ -32,7 +41,9 @@
 .product-title{
   color:#fff;
   font-size:18px;
-  font-weight:500;
+  font-weight:100;
+  font-family: "gothica",sans-serif;
+  /* letter-spacing: 1px; */
 }
 
 .product-category{

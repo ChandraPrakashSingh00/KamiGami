@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "advegd";
+  src: url("../../assets/fonts/ADVEGD__.TTF");
+}
+
 .product-section{
   background:#000;
   min-height:100vh;

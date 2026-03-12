@@ -35,7 +35,7 @@ const HeroSlider = () => {
 
     return () => clearInterval(interval);
   }, []);
-
+ 
   return (
     <section className="hero-slider">
 
