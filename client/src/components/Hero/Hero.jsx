@@ -3,10 +3,9 @@ import "../Hero/hero.css";
 import gsap from "gsap";
 import Draggable from "gsap/dist/Draggable";
 import videoSrc from "../../assets/videos/1.mp4";
-import Navbar from "../Navbar/Navbar";
+
 import Product from "../../pages/ProductPages/Product";
 import HeroSlider from "../../pages/HeroSlider/HeroSlider";
-import HeroFooter from '../../pages/HeroFooter/HeroFooter'
 
 gsap.registerPlugin(Draggable);
 
@@ -235,7 +234,7 @@ export default function MaskVideo() {
     <>
     <div ref={heroRef} className="hero">
       <div className="hero-corners"></div>
-      <Navbar />
+      
       <video
         ref={videoRef}
         src={videoSrc}
@@ -268,7 +267,7 @@ export default function MaskVideo() {
     </div>
     <HeroSlider/>
 <Product/>
-<HeroFooter/>
+
 
 
     </>
