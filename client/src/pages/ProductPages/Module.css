@@ -3,42 +3,100 @@
   src: url("../../assets/fonts/ADVEGD__.TTF");
 }
 
+/* SECTION */
+
 .product-section{
   background:#000;
   min-height:100vh;
-  padding:40px 60px;
+  padding:60px 80px;
 }
 
+/* FILTER BAR */
 
 .filter-bar{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:10px;
   color:#d1d5db;
-  margin-bottom:25px;
+
+  margin-bottom:35px;
   cursor:pointer;
+
+  font-size:14px;
+  letter-spacing:1px;
+
+  transition:0.3s;
 }
 
+.filter-bar:hover{
+  color:#fff;
+  transform:translateY(-2px);
+}
+
+
+/* PRODUCT GRID */
 
 .product-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:30px;
+  gap:35px;
+
+  width:100%;
+}
+
+/* PRODUCT CARD EFFECT */
+
+.product-grid > *{
+  transition:0.35s ease;
+}
+
+.product-grid > *:hover{
+  transform:translateY(-6px);
 }
 
 
-@media (max-width:1024px){
+/* LARGE TABLET */
+
+@media (max-width:1200px){
+
+  .product-section{
+    padding:50px 60px;
+  }
 
   .product-grid{
     grid-template-columns:repeat(2,1fr);
+    gap:30px;
   }
 
 }
+
+/* TABLET */
+
+@media (max-width:900px){
+
+  .product-section{
+    padding:40px 30px;
+  }
+
+  .product-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+  }
+
+}
+
+
+/* MOBILE */
 
 @media (max-width:600px){
 
   .product-section{
     padding:30px 20px;
+  }
+
+  .filter-bar{
+    font-size:13px;
+    margin-bottom:25px;
   }
 
   .product-grid{

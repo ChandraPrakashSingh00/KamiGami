@@ -5,8 +5,6 @@
   font-style: normal;
 }
 
-
-
 .navbar{
   position:absolute;
   top:0;
@@ -22,10 +20,11 @@
   padding:0 40px;
 
   color:#E71E22;
-  z-index:1000;
+
+  z-index:100;   
 }
 
-/* LEFT */
+
 
 .nav-left{
   display:flex;
@@ -40,7 +39,6 @@
 }
 
 
-/* CENTER LOGO */
 
 .nav-center{
   position:absolute;
@@ -54,7 +52,6 @@
 }
 
 
-/* RIGHT */
 
 .nav-right{
   display:flex;
@@ -72,7 +69,6 @@
 }
 
 
-/* MOBILE MENU BUTTON */
 
 .mobile-menu{
   display:none;
@@ -80,7 +76,6 @@
 }
 
 
-/* MOBILE NAV */
 
 .mobile-nav{
   position:absolute;
@@ -111,7 +106,6 @@
 }
 
 
-/* RESPONSIVE */
 
 @media (max-width:900px){
 
@@ -138,9 +132,8 @@
 
 }
 
-
 .outer img {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
 }
