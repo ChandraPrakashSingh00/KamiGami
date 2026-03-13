@@ -5,16 +5,6 @@
   font-style: normal;
 }
 
-<<<<<<< HEAD
-=======
-@font-face {
-  font-family: "gothic";
-  src: url("../../assets/fonts/GothicVille.ttf");
-}
-
-
-
->>>>>>> 99cf26d1ea7aa7fdfb513a704c59cf374717002f
 .navbar{
   position:absolute;
   top:0;

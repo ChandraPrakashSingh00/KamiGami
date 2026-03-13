@@ -72,12 +72,7 @@
   color:#fff;
   font-size:18px;
   font-weight:100;
-<<<<<<< HEAD
   font-family:"gothica",sans-serif;
-=======
-  font-family: "bytes",sans-serif;
-  /* letter-spacing: 1px; */
->>>>>>> 99cf26d1ea7aa7fdfb513a704c59cf374717002f
 }
 
 .product-category{
@@ -99,12 +94,8 @@
 .product-price{
   color:#fff;
   font-weight:600;
-<<<<<<< HEAD
-  font-size:16px;
-=======
   font-family: "bytes",sans-serif;
   font-weight: 500;
->>>>>>> 99cf26d1ea7aa7fdfb513a704c59cf374717002f
 }
 
 
