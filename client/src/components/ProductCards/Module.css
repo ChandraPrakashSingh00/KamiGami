@@ -1,11 +1,15 @@
 @font-face {
-  font-family: "exorxista";
-  src: url("../../assets/fonts/Exorcista_-Jed_40.ttf");
+  font-family: "gothic";
+  src: url("../../assets/fonts/GothicVille.ttf");
 }
 
 @font-face {
-  font-family: "gothica";
-  src: url("../../assets/fonts/Gothica-Bold.ttf");
+  font-family: "bytes";
+  src: url("../../assets/fonts/BYTES.ttf") format("truetype");
+}
+@font-face {
+  font-family: "mdgothic";
+  src: url("../../assets/fonts/Md_Gothic11.ttf") format("truetype");
 }
 
 .product-card{
@@ -42,13 +46,14 @@
   color:#fff;
   font-size:18px;
   font-weight:100;
-  font-family: "gothica",sans-serif;
+  font-family: "bytes",sans-serif;
   /* letter-spacing: 1px; */
 }
 
 .product-category{
   color:#9ca3af;
   font-size:14px;
+  font-family: "gothic",sans-serif;
 }
 
 
@@ -62,6 +67,8 @@
 .product-price{
   color:#fff;
   font-weight:600;
+  font-family: "bytes",sans-serif;
+  font-weight: 500;
 }
 
 .cart-btn{

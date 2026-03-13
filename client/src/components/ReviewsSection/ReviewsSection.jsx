@@ -1,5 +1,6 @@
 import React from "react";
 import { Star } from "lucide-react";
+import "./module.css"
 
 const ReviewsSection = () => {
 
@@ -18,7 +19,7 @@ const ReviewsSection = () => {
 
         {/* Title */}
 
-        <h2 className="text-xl text-[#d4c9a8] mb-12">
+        <h2 className="review text-xl text-[#d4c9a8] mb-12">
           Reviews & Ratings
         </h2>
 
@@ -30,11 +31,11 @@ const ReviewsSection = () => {
 
           <div className="flex items-center gap-3">
 
-            <h1 className="text-[120px] lg:text-[150px] font-bold text-red-700 leading-none">
+            <h1 className="rating-percent text-[120px] lg:text-[150px] font-bold text-red-700 leading-none">
               4.5
             </h1>
 
-            <span className="text-3xl text-white">
+            <span className="rating-percent text-3xl text-white">
               /5
             </span>
 
@@ -53,7 +54,7 @@ const ReviewsSection = () => {
                 <div className="flex items-center gap-1 text-yellow-400 w-10">
 
                   <Star size={14} fill="currentColor"/>
-                  <span className="text-sm">{item.star}</span>
+                  <span className="rating-percent text-sm">{item.star}</span>
 
                 </div>
 
@@ -80,7 +81,7 @@ const ReviewsSection = () => {
 
             <div className="flex items-start gap-4">
 
-              <img
+              <img 
                 src="https://tse3.mm.bing.net/th/id/OIP.q9P9v3T1TcUkYWh7lYGzlwHaHa?pid=Api&P=0&h=180"
                 alt="user"
                 className="w-14 h-14 rounded-full object-cover"
@@ -90,11 +91,11 @@ const ReviewsSection = () => {
 
                 <div className="flex justify-between items-center">
 
-                  <h3 className="font-semibold text-lg">
+                  <h3 className="testimonial-user font-semibold text-lg">
                     Modi Modi
                   </h3>
 
-                  <span className="text-xs text-gray-400">
+                  <span className="review-date text-xs text-gray-400">
                     13 OCT 2025
                   </span>
 
@@ -108,7 +109,7 @@ const ReviewsSection = () => {
 
                 </div>
 
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="review-text text-gray-400 text-sm leading-relaxed">
                   Angena gātram, nayena vakratam, jñānena rājyam,
                   lavanena bhojyam.
                 </p>

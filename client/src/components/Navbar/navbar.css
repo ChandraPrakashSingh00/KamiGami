@@ -5,6 +5,11 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "gothic";
+  src: url("../../assets/fonts/GothicVille.ttf");
+}
+
 
 
 .navbar{
@@ -36,7 +41,7 @@
 
 .nav-left a{
   cursor:pointer;
-  font-family: "bytes", sans-serif;
+  font-family: "gothic", sans-serif;
 }
 
 

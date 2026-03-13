@@ -8,11 +8,13 @@ import {
 } from "lucide-react";
 import ReviewsSection from "../../components/ReviewsSection/ReviewsSection";
 import RelatedProducts from "../../components/RelatedProducts/RelatedProducts";
+import "./module.css"
 
 
 const ProductDetails = () => {
 
   const images = [
+
     "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf",
     "https://images.unsplash.com/photo-1593032465175-481ac7f401a0",
     "https://images.unsplash.com/photo-1618354691229-88d47f285158"
@@ -29,7 +31,7 @@ const ProductDetails = () => {
 
       {/* BREADCRUMB */}
 
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-6 text-gray-400 text-sm">
+      <div className="breadcrumb max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-6 text-gray-400 text-sm">
         Home • Product Details
       </div>
 
@@ -70,11 +72,11 @@ const ProductDetails = () => {
 
         <div>
 
-          <h1 className="text-2xl sm:text-3xl font-semibold">
+          <h1 className="product-title text-2xl sm:text-3xl font-semibold">
             Loose Fit Hoodie
           </h1>
 
-          <p className="text-red-600 text-xl sm:text-2xl mt-2">
+          <p className="product-price text-red-600 text-xl sm:text-2xl mt-2">
             ₹2,999
           </p>
 
@@ -83,7 +85,7 @@ const ProductDetails = () => {
 
           <div className="mt-8">
 
-            <p className="text-gray-400 mb-3">
+            <p className="select-size text-gray-400 mb-3">
               Select Size
             </p>
 
@@ -93,7 +95,7 @@ const ProductDetails = () => {
                 <button
                   key={s}
                   onClick={() => setSize(s)}
-                  className={`px-5 py-2 rounded-full border text-sm transition ${
+                  className={`size-text px-5 py-2 rounded-full border text-sm transition ${
                     size === s
                       ? "bg-red-600 border-red-600"
                       : "border-neutral-700 hover:border-red-600"
@@ -112,11 +114,11 @@ const ProductDetails = () => {
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-8">
 
-            <button className="bg-red-600 px-10 py-3 rounded-full hover:bg-red-700 transition">
+            <button className="addToCart bg-red-600 px-10 py-3 rounded-full hover:bg-red-700 transition">
               Add To Cart
             </button>
 
-            <button className="bg-red-600 px-10 py-3 rounded-full hover:bg-red-700 transition">
+            <button className="buyNow bg-red-600 px-10 py-3 rounded-full hover:bg-red-700 transition">
               Buy Now
             </button>
 
@@ -131,11 +133,11 @@ const ProductDetails = () => {
 
           <div className="mt-10">
 
-            <h2 className="text-xl font-semibold mb-3">
+            <h2 className="product-description text-xl font-semibold mb-3">
               Description & Fit
             </h2>
 
-            <p className="text-red-400 leading-relaxed text-sm sm:text-base">
+            <p className="product-detail text-red-400 leading-relaxed text-sm sm:text-base">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Aliquam tempor elit ac pharetra posuere ligula turpis
               elementum felis ut hendrerit felis odio non dolor.
@@ -148,7 +150,7 @@ const ProductDetails = () => {
 
           <div className="mt-10">
 
-            <h2 className="text-xl font-semibold mb-6">
+            <h2 className="shipping-heading text-xl font-semibold mb-6">
               Shipping
             </h2>
 
@@ -162,8 +164,8 @@ const ProductDetails = () => {
                 </div>
 
                 <div>
-                  <p className="text-red-600">Discount</p>
-                  <p className="text-gray-400 text-sm">DISC50%</p>
+                  <p className="ship-details text-red-600">Discount</p>
+                  <p className="ship-text text-gray-400 text-sm">DISC50%</p>
                 </div>
 
               </div>
@@ -176,8 +178,8 @@ const ProductDetails = () => {
                 </div>
 
                 <div>
-                  <p className="text-red-600">Package</p>
-                  <p className="text-gray-400 text-sm">Regular Packaging</p>
+                  <p className="ship-details text-red-600">Package</p>
+                  <p className="ship-text text-gray-400 text-sm">Regular Packaging</p>
                 </div>
 
               </div>
@@ -190,8 +192,8 @@ const ProductDetails = () => {
                 </div>
 
                 <div>
-                  <p className="text-red-600">Delivery Time</p>
-                  <p className="text-gray-400 text-sm">3-4 Working Days</p>
+                  <p className="ship-details text-red-600">Delivery Time</p>
+                  <p className="ship-text text-gray-400 text-sm">3-4 Working Days</p>
                 </div>
 
               </div>
@@ -204,8 +206,8 @@ const ProductDetails = () => {
                 </div>
 
                 <div>
-                  <p className="text-red-600">Estimation Arrive</p>
-                  <p className="text-gray-400 text-sm">10-12 Oct 2026</p>
+                  <p className=" ship-details text-red-600">Estimation Arrive</p>
+                  <p className="ship-text text-gray-400 text-sm">10-12 Oct 2026</p>
                 </div>
 
               </div>
