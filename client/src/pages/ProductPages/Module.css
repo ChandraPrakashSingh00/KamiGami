@@ -1,10 +1,17 @@
 @font-face {
-  font-family: "advegd";
-  src: url("../../assets/fonts/ADVEGD__.TTF");
+  font-family: "gothic";
+  src: url("../../assets/fonts/GothicVille.ttf");
 }
 
+<<<<<<< HEAD
 /* SECTION */
 
+=======
+@font-face {
+  font-family: "bytes";
+  src: url("../../assets/fonts/BYTES.ttf") format("truetype");
+}
+>>>>>>> 99cf26d1ea7aa7fdfb513a704c59cf374717002f
 .product-section{
   background:#000;
   min-height:100vh;
