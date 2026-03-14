@@ -3,20 +3,20 @@
   src: url("../../assets/fonts/GothicVille.ttf");
 }
 
-<<<<<<< HEAD
-/* SECTION */
-
-=======
 @font-face {
   font-family: "bytes";
   src: url("../../assets/fonts/BYTES.ttf") format("truetype");
 }
->>>>>>> 99cf26d1ea7aa7fdfb513a704c59cf374717002f
+
+
+/* SECTION */
+
 .product-section{
   background:#000;
   min-height:100vh;
   padding:60px 80px;
 }
+
 
 /* FILTER BAR */
 
@@ -24,9 +24,10 @@
   display:flex;
   align-items:center;
   gap:10px;
-  color:#d1d5db;
 
+  color:#d1d5db;
   margin-bottom:35px;
+
   cursor:pointer;
 
   font-size:14px;
@@ -45,13 +46,15 @@
 
 .product-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:35px;
 
+  grid-template-columns:repeat(3, 1fr);
+
+  gap:35px;
   width:100%;
 }
 
-/* PRODUCT CARD EFFECT */
+
+/* CARD HOVER EFFECT */
 
 .product-grid > *{
   transition:0.35s ease;
@@ -71,11 +74,12 @@
   }
 
   .product-grid{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2, 1fr);
     gap:30px;
   }
 
 }
+
 
 /* TABLET */
 
@@ -86,7 +90,7 @@
   }
 
   .product-grid{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2, 1fr);
     gap:25px;
   }
 
