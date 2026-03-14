@@ -1,5 +1,5 @@
 import "../HeroFooter/Footer.css";
-import "./Module.css";
+
 import { Instagram, Facebook, Twitter } from "lucide-react";
 
 const HeroSection = () => {

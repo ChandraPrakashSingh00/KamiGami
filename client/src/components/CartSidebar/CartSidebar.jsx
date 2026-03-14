@@ -1,79 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
 import { X } from "lucide-react";
+import "../CartSidebar/module.css";
 
 const CartSidebar = ({ isOpen, setIsOpen }) => {
+
+  const [quantity, setQuantity] = useState(1);
+  const price = 2999;
+
+  const increase = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrease = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const subtotal = price * quantity;
+
   return (
     <>
       {/* Overlay */}
       <div
         onClick={() => setIsOpen(false)}
-        className={`fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300 ${
-          isOpen ? "opacity-100 visible z-[998]" : "opacity-0 invisible"
-        }`}
-      />
+        className={`overlay ${isOpen ? "show" : ""}`}
+      ></div>
 
       {/* Sidebar */}
-      <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-[380px] bg-black text-white shadow-2xl transform transition-transform duration-300 z-[999] flex flex-col ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
+      <div className={`cart-sidebar ${isOpen ? "open" : ""}`}>
+
         {/* Header */}
-        <div className="flex items-center justify-between p-5 border-b border-gray-800">
-          <h2 className="text-red-500 text-lg font-semibold">
-            Your Cart
-          </h2>
+        <div className="cart-header">
+
+          <h2>Your Cart</h2>
 
           <button
             onClick={() => setIsOpen(false)}
-            className="text-white hover:text-red-500 transition"
+            className="close-btn"
           >
             <X size={26} />
           </button>
+
         </div>
 
-        {/* Cart Items */}
-        <div className="flex-1 overflow-y-auto">
+        {/* Cart Item */}
+        <div className="cart-items">
 
-
-          <div className="p-5 flex gap-4 border-b border-gray-800">
+          <div className="cart-item">
 
             <img
               src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf"
               alt="product"
-              className="w-20 h-20 object-cover rounded-md"
             />
 
-            <div className="flex flex-col justify-between w-full">
+            <div className="item-info">
 
-              <div>
-                <h3 className="text-sm font-medium">
-                  Loose Fit Hoodie
-                </h3>
+              <h3>Loose Fit Hoodie</h3>
 
-                <p className="text-red-500 font-semibold">
-                  ₹2,999
-                </p>
-              </div>
+              <p className="price">₹{price}</p>
 
-              {/* Quantity */}
-              <div className="flex items-center justify-between mt-3">
+              <div className="item-actions">
 
-                <div className="flex items-center bg-gray-800 rounded">
+                {/* Quantity */}
+                <div className="quantity">
 
-                  <button className="px-3 py-1 hover:bg-gray-700">
-                    -
-                  </button>
+                  <button onClick={decrease}>-</button>
 
-                  <span className="px-4 text-sm">1</span>
+                  <span>{quantity}</span>
 
-                  <button className="px-3 py-1 hover:bg-gray-700">
-                    +
-                  </button>
+                  <button onClick={increase}>+</button>
 
                 </div>
 
-                <button className="text-red-500 text-sm hover:underline">
+                <button className="remove-btn">
                   Remove
                 </button>
 
@@ -85,15 +85,18 @@ const CartSidebar = ({ isOpen, setIsOpen }) => {
 
         </div>
 
-        {/* Checkout */}
-        <div className="p-6 border-t border-gray-800">
+        {/* Footer */}
+        <div className="cart-footer">
 
-          <div className="flex justify-between mb-4 text-sm">
-            <span className="text-gray-400">Subtotal</span>
-            <span className="font-semibold">₹2,999</span>
+          <div className="subtotal">
+
+            <span>Subtotal</span>
+
+            <span>₹{subtotal}</span>
+
           </div>
 
-          <button className="w-full bg-red-700 hover:bg-red-800 transition text-white py-4 rounded-full text-lg font-semibold shadow-lg">
+          <button className="checkout-btn">
             Check Out
           </button>
 
