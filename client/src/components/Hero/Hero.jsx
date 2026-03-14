@@ -237,7 +237,7 @@ export default function MaskVideo() {
       
       <video
         ref={videoRef}
-        src={videoSrc}
+        // src={videoSrc}
         muted
         loop
         style={{ display: "none" }}

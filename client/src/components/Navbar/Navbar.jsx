@@ -1,29 +1,22 @@
 import { useState } from "react";
 import "./navbar.css";
-import {
-  MapPin,
-  Search,
-  User,
-  Heart,
-  ShoppingCart,
-  Menu
-} from "lucide-react";
+import { MapPin, Search, User, Heart, ShoppingCart, Menu } from "lucide-react";
 
 import { Link } from "react-router-dom";
 
 import logo from "../../assets/images/Logo.png";
 import StoryIcon from "../../elements/StoryIcon";
 import CartSidebar from "../CartSidebar/CartSidebar"; // ✅ import
+import SearchOverlay from "../Search/SearchBox";
 
 export default function Navbar() {
-
   const [open, setOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <>
       <nav className="navbar">
-
         {/* LEFT LINKS */}
         <div className="nav-left">
           <Link to="/new">New In</Link>
@@ -39,7 +32,6 @@ export default function Navbar() {
 
         {/* RIGHT ICONS */}
         <div className="nav-right">
-
           <Link to="/stories">
             <StoryIcon />
           </Link>
@@ -48,9 +40,9 @@ export default function Navbar() {
             <MapPin size={22} />
           </Link>
 
-          <Link to="/search">
+          <button onClick={() => setSearchOpen(true)}>
             <Search size={22} />
-          </Link>
+          </button>
 
           <Link to="/profile">
             <User size={22} />
@@ -64,7 +56,6 @@ export default function Navbar() {
           <button onClick={() => setCartOpen(true)}>
             <ShoppingCart size={22} />
           </button>
-
         </div>
 
         {/* MOBILE MENU */}
@@ -74,19 +65,17 @@ export default function Navbar() {
 
         {/* MOBILE NAV */}
         <div className={`mobile-nav ${open ? "active" : ""}`}>
-
           <Link to="/new">New In</Link>
           <Link to="/collections">Collections</Link>
 
           <div className="mobile-icons">
-
             <Link to="/location">
               <MapPin />
             </Link>
 
-            <Link to="/search">
+            <button onClick={() => setSearchOpen(true)}>
               <Search />
-            </Link>
+            </button>
 
             <Link to="/profile">
               <User />
@@ -100,15 +89,13 @@ export default function Navbar() {
             <button onClick={() => setCartOpen(true)}>
               <ShoppingCart />
             </button>
-
           </div>
         </div>
-
       </nav>
 
       {/* ✅ SIDEBAR YAHAN ADD KARNA HAI */}
       <CartSidebar isOpen={cartOpen} setIsOpen={setCartOpen} />
-
+      <SearchOverlay isOpen={searchOpen} setIsOpen={setSearchOpen} />
     </>
   );
 }
