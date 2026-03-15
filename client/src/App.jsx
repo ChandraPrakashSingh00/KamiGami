@@ -3,10 +3,11 @@ import { Routes, Route } from "react-router-dom";
 import Hero from "./components/Hero/Hero";
 // import ProductDetails from "./pages/ProductDetails/ProductDeatils";
 import Navbar from "./components/Navbar/Navbar";
-import Footer from './pages/HeroFooter/HeroFooter'
+import Footer from "./components/Footer/Footer";
 import CartSidebar from "./components/CartSidebar/CartSidebar";
 
 const App = () => {
+  
   return (
     <>
       <Navbar/>

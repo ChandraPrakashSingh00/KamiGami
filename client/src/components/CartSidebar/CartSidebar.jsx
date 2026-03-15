@@ -2,26 +2,60 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 import "../CartSidebar/module.css";
 
-const CartSidebar = ({ isOpen, setIsOpen }) => {
+const CartSidebar = ({
+  cartItems = [],
+  setCartItems,
+  isOpen,
+  setIsOpen,
+}) => {
 
-  const [quantity, setQuantity] = useState(1);
   const [coupon, setCoupon] = useState("");
   const [discount, setDiscount] = useState(0);
 
-  const price = 2999;
-
-  const increase = () => {
-    setQuantity(quantity + 1);
+  // convert price safely
+  const getPrice = (price) => {
+    if (typeof price === "number") return price;
+    return parseInt(price.replace(/[^0-9]/g, ""));
   };
 
-  const decrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+  // increase quantity
+  const increase = (id) => {
+    const updated = cartItems.map((item) =>
+      item.id === id
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    );
+
+    setCartItems(updated);
   };
 
-  const subtotal = price * quantity;
+  // decrease quantity
+  const decrease = (id) => {
+    const updated = cartItems.map((item) =>
+      item.id === id && item.quantity > 1
+        ? { ...item, quantity: item.quantity - 1 }
+        : item
+    );
 
+    setCartItems(updated);
+  };
+
+  // remove item
+  const removeItem = (id) => {
+    const filtered = cartItems.filter(
+      (item) => item.id !== id
+    );
+
+    setCartItems(filtered);
+  };
+
+  // subtotal calculation (FIXED REDUCE)
+  const subtotal = cartItems.reduce((total, item) => {
+    const price = getPrice(item.price);
+    return total + price * item.quantity;
+  }, 0);
+
+  // apply coupon
   const applyCoupon = (value) => {
     setCoupon(value);
 
@@ -36,16 +70,16 @@ const CartSidebar = ({ isOpen, setIsOpen }) => {
 
   return (
     <>
-      {/* Overlay */}
+      
       <div
         onClick={() => setIsOpen(false)}
         className={`overlay ${isOpen ? "show" : ""}`}
       ></div>
 
-      {/* Sidebar */}
+     
       <div className={`cart-sidebar ${isOpen ? "open" : ""}`}>
 
-        {/* Header */}
+       
         <div className="cart-header">
 
           <h2>Your Cart</h2>
@@ -59,45 +93,86 @@ const CartSidebar = ({ isOpen, setIsOpen }) => {
 
         </div>
 
-        {/* Cart Item */}
+       
         <div className="cart-items">
 
-          <div className="cart-item">
+          {cartItems.length === 0 && (
+            <p className="empty-cart">
+              Cart is empty
+            </p>
+          )}
 
-            <img
-              src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf"
-              alt="product"
-            />
+          {cartItems.map((item) => {
 
-            <div className="item-info">
+            const price = getPrice(item.price);
 
-              <h3>Loose Fit Hoodie</h3>
+            return (
 
-              <p className="price">₹{price}</p>
+              <div key={item.id} className="cart-item">
 
-              <div className="item-actions">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                />
 
-                <div className="quantity">
-                  <button onClick={decrease}>-</button>
-                  <span>{quantity}</span>
-                  <button onClick={increase}>+</button>
+                <div className="item-info">
+
+                  <h3>{item.title}</h3>
+
+                  <p className="price">
+                    ₹{price}
+                  </p>
+
+                  <div className="item-actions">
+
+                    <div className="quantity">
+
+                      <button
+                        onClick={() =>
+                          decrease(item.id)
+                        }
+                      >
+                        -
+                      </button>
+
+                      <span>
+                        {item.quantity}
+                      </span>
+
+                      <button
+                        onClick={() =>
+                          increase(item.id)
+                        }
+                      >
+                        +
+                      </button>
+
+                    </div>
+
+                    <button
+                      onClick={() =>
+                        removeItem(item.id)
+                      }
+                      className="remove-btn"
+                    >
+                      Remove
+                    </button>
+
+                  </div>
+
                 </div>
-
-                <button className="remove-btn">
-                  Remove
-                </button>
 
               </div>
 
-            </div>
-
-          </div>
+            );
+          })}
 
         </div>
 
-        {/* COUPON DESIGN */}
-        <div className="coupon-section">
+       
+        {cartItems.length > 0 && (
 
+<<<<<<< HEAD
           
 
           <input
@@ -106,34 +181,66 @@ const CartSidebar = ({ isOpen, setIsOpen }) => {
             value={coupon}
             onChange={(e) => applyCoupon(e.target.value)}
           />
+=======
+          <div className="coupon-section">
 
-        </div>
+            <label>COUPON CODE ?</label>
+>>>>>>> 50b6256c9f00797bc5cd4c1e24c0dc4862f370b8
 
-        {/* Footer */}
-        <div className="cart-footer">
+            <input
+              type="text"
+              placeholder="Enter coupon"
+              value={coupon}
+              onChange={(e) =>
+                applyCoupon(e.target.value)
+              }
+            />
 
-          <div className="subtotal">
-            <span>Subtotal</span>
-            <span>₹{subtotal}</span>
           </div>
 
-          {discount > 0 && (
+        )}
+
+        
+        {cartItems.length > 0 && (
+
+          <div className="cart-footer">
+
             <div className="subtotal">
-              <span>Discount</span>
-              <span>- ₹{discount}</span>
+              <span>Subtotal</span>
+              <span>₹{subtotal}</span>
             </div>
-          )}
 
-          <div className="total">
-            <span>Total</span>
-            <span>₹{total}</span>
+            {discount > 0 && (
+
+              <div className="subtotal">
+
+                <span>Discount</span>
+
+                <span>
+                  - ₹{discount.toFixed(0)}
+                </span>
+
+              </div>
+
+            )}
+
+            <div className="total">
+
+              <span>Total</span>
+
+              <span>
+                ₹{total.toFixed(0)}
+              </span>
+
+            </div>
+
+            <button className="checkout-btn">
+              Check Out
+            </button>
+
           </div>
 
-          <button className="checkout-btn">
-            Check Out
-          </button>
-
-        </div>
+        )}
 
       </div>
     </>
