@@ -3,22 +3,15 @@ import ProductCard from "../../components/ProductCards/ProductCards";
 import CartSidebar from "../../components/CartSidebar/CartSidebar";
 import { Funnel } from "lucide-react";
 import "../ProductPages/module.css";
-import Cards from "../../components/Cards/Cards";
 
 const products = [
   {
     id: 1,
     title: "Classic Black Hoodie",
     category: "Men",
-<<<<<<< HEAD
-    price: "Rs. 3,499",
-    image:
-      "https://i.pinimg.com/avif/1200x/5b/96/ee/5b96ee17de14c0c955cf7975cd2aec5c.avf",
-=======
     price: 3499,
     image:
       "https://cdn.pixabay.com/photo/2024/05/03/16/00/realistic-8737344_1280.jpg",
->>>>>>> 50b6256c9f00797bc5cd4c1e24c0dc4862f370b8
   },
   {
     id: 2,
@@ -36,37 +29,7 @@ const products = [
     image:
       "https://images.unsplash.com/photo-1618354691373-d851c5c3a990",
   },
-  {
-    id: 4,
-    title: "Urban Style Hoodie",
-    category: "Men",
-    price: 3899,
-    image:
-      "https://images.unsplash.com/photo-1608234808654-2a8875faa7fd",
-  },
-  {
-    id: 5,
-    title: "Comfort Fit Hoodie",
-    category: "Men",
-    price: 3599,
-    image:
-      "https://images.unsplash.com/photo-1622473590773-f588134b6ce7",
-  },
-  {
-    id: 6,
-    title: "Streetwear Premium Hoodie",
-    category: "Men",
-    price: 4099,
-    image:
-      "https://images.unsplash.com/photo-1544441893-675973e31985",
-  },
 ];
-
-
-const ProductSection = (image) => {
-  return (
-    <section className="product-section">
-      {/* Filter */}
 
 const ProductSection = () => {
 
@@ -83,10 +46,7 @@ const ProductSection = () => {
 
       const updated = cartItems.map((item) =>
         item.id === product.id
-          ? {
-              ...item,
-              quantity: item.quantity + 1,
-            }
+          ? { ...item, quantity: item.quantity + 1 }
           : item
       );
 
@@ -101,23 +61,18 @@ const ProductSection = () => {
 
     }
 
-    
     setIsOpen(true);
   };
 
   return (
     <section className="product-section">
 
-     
-
       <div className="filter-bar">
         <Funnel size={18} />
         <span>Filter</span>
       </div>
 
-     
       <div className="product-grid">
-
         {products.map((product) => (
           <ProductCard
             key={product.id}
@@ -125,31 +80,14 @@ const ProductSection = () => {
             addToCart={addToCart}
           />
         ))}
-
-        {/* {products.map((product) => {
-          return (
-            <Cards
-              key={product.id}
-              image={product.image}
-              title={product.title}
-              description="Dark Rock Skull Men's Patchwork Hoodie – A bold and stylish hoodie featuring an edgy skull design."
-              price={product.price}
-            />
-          );
-        })} */}
       </div>
 
-
-      </div>
-
-      
       <CartSidebar
         cartItems={cartItems}
         setCartItems={setCartItems}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
       />
-
 
     </section>
   );
