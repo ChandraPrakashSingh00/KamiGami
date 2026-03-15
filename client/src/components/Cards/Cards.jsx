@@ -21,5 +21,5 @@ const Cards = ({ image, title, description, price }) => {
     </div>
   );
 };
-
+ 
 export default Cards;
