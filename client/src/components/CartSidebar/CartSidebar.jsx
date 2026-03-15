@@ -5,6 +5,9 @@ import "../CartSidebar/module.css";
 const CartSidebar = ({ isOpen, setIsOpen }) => {
 
   const [quantity, setQuantity] = useState(1);
+  const [coupon, setCoupon] = useState("");
+  const [discount, setDiscount] = useState(0);
+
   const price = 2999;
 
   const increase = () => {
@@ -18,6 +21,18 @@ const CartSidebar = ({ isOpen, setIsOpen }) => {
   };
 
   const subtotal = price * quantity;
+
+  const applyCoupon = (value) => {
+    setCoupon(value);
+
+    if (value === "SAVE10") {
+      setDiscount(subtotal * 0.1);
+    } else {
+      setDiscount(0);
+    }
+  };
+
+  const total = subtotal - discount;
 
   return (
     <>
@@ -62,15 +77,10 @@ const CartSidebar = ({ isOpen, setIsOpen }) => {
 
               <div className="item-actions">
 
-                {/* Quantity */}
                 <div className="quantity">
-
                   <button onClick={decrease}>-</button>
-
                   <span>{quantity}</span>
-
                   <button onClick={increase}>+</button>
-
                 </div>
 
                 <button className="remove-btn">
@@ -85,15 +95,37 @@ const CartSidebar = ({ isOpen, setIsOpen }) => {
 
         </div>
 
+        {/* COUPON DESIGN */}
+        <div className="coupon-section">
+
+          <label>COUPON CODE ?</label>
+
+          <input
+            type="text"
+            value={coupon}
+            onChange={(e) => applyCoupon(e.target.value)}
+          />
+
+        </div>
+
         {/* Footer */}
         <div className="cart-footer">
 
           <div className="subtotal">
-
             <span>Subtotal</span>
-
             <span>₹{subtotal}</span>
+          </div>
 
+          {discount > 0 && (
+            <div className="subtotal">
+              <span>Discount</span>
+              <span>- ₹{discount}</span>
+            </div>
+          )}
+
+          <div className="total">
+            <span>Total</span>
+            <span>₹{total}</span>
           </div>
 
           <button className="checkout-btn">

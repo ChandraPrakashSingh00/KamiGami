@@ -6,10 +6,10 @@ const HeroSection = () => {
   return (
     <section className="hero">
       
-      {/* Top Bar */}
+    
       <div className="hero-top">
 
-        {/* Playstore */}
+       
         <button className="playstore-btn">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
@@ -17,7 +17,7 @@ const HeroSection = () => {
           />
         </button>
 
-        {/* Social Icons */}
+       
         <div className="socials">
 
           <div className="social-icon">
@@ -35,10 +35,10 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Divider */}
+      
       <div className="divider"></div>
 
-      {/* Hero Center */}
+      
       <div className="hero-center">
         <div className="hero-container">
           <h1 className="hero-title">KAMIGAMI</h1>

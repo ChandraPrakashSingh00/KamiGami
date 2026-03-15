@@ -130,8 +130,6 @@ margin-top:10px;
 }
 
 
-/* QUANTITY */
-
 .quantity{
 display:flex;
 align-items:center;
@@ -158,8 +156,6 @@ font-size:14px;
 }
 
 
-/* REMOVE */
-
 .remove-btn{
 background:none;
 border:none;
@@ -169,22 +165,113 @@ cursor:pointer;
 }
 
 
+/* COUPON SECTION */
+
+.coupon-section{
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.coupon-section label{
+font-size:13px;
+letter-spacing:1px;
+color:#bbb;
+}
+
+.coupon-section input{
+background:transparent;
+border:none;
+border-bottom:1px solid #555;
+
+padding:8px 0;
+
+color:#fff;
+font-size:14px;
+
+outline:none;
+transition:0.3s;
+}
+
+.coupon-section input:focus{
+border-bottom:1px solid #fff;
+}
+
+
 /* FOOTER */
 
 .cart-footer{
 padding:20px;
 border-top:1px solid #1f1f1f;
+display:flex;
+flex-direction:column;
+gap:12px;
+background:#0a0a0a;
 }
+
+
+/* SUBTOTAL */
 
 .subtotal{
 display:flex;
 justify-content:space-between;
-margin-bottom:14px;
+align-items:center;
+
+font-size:14px;
+color:#bdbdbd;
+
+padding-bottom:10px;
+border-bottom:1px dashed #2a2a2a;
 }
+
+
+/* DISCOUNT */
+
+.discount{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+font-size:14px;
+color:#22c55e;
+}
+
+
+/* TOTAL */
+
+.total{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+font-size:18px;
+font-weight:700;
+
+padding:12px 0;
+
+color:#fff;
+
+border-top:1px solid #2a2a2a;
+}
+
+
+/* TOTAL PRICE HIGHLIGHT */
+
+.total span:last-child{
+color:#ef4444;
+font-size:20px;
+}
+
+
+/* CHECKOUT BUTTON */
 
 .checkout-btn{
 width:100%;
 padding:14px;
+
+margin-top:10px;
+
 background:#dc2626;
 border:none;
 border-radius:30px;
@@ -199,10 +286,12 @@ transition:0.3s;
 
 .checkout-btn:hover{
 background:#b91c1c;
+transform:translateY(-1px);
+box-shadow:0 6px 20px rgba(220,38,38,0.3);
 }
 
 
-/* MOBILE */
+/* RESPONSIVE */
 
 @media (max-width:600px){
 
@@ -213,6 +302,14 @@ width:100%;
 .cart-item img{
 width:70px;
 height:70px;
+}
+
+.cart-header{
+padding:16px;
+}
+
+.cart-footer{
+padding:16px;
 }
 
 }
