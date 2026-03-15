@@ -98,9 +98,10 @@ const CartSidebar = ({ isOpen, setIsOpen }) => {
         {/* COUPON DESIGN */}
         <div className="coupon-section">
 
-          <label>COUPON CODE ?</label>
+          
 
           <input
+            placeholder="Coupon Code ?"
             type="text"
             value={coupon}
             onChange={(e) => applyCoupon(e.target.value)}

@@ -2,6 +2,7 @@ import React from "react";
 import ProductCard from "../../components/ProductCards/ProductCards";
 import { Funnel } from "lucide-react";
 import "../ProductPages/module.css";
+import Cards from "../../components/Cards/Cards";
 
 const products = [
   {
@@ -9,7 +10,8 @@ const products = [
     title: "Classic Black Hoodie",
     category: "Men",
     price: "Rs. 3,499",
-    image: "https://images.unsplash.com/photo-1556821840-3a9fbc2c7f2e",
+    image:
+      "https://i.pinimg.com/avif/1200x/5b/96/ee/5b96ee17de14c0c955cf7975cd2aec5c.avf",
   },
   {
     id: 2,
@@ -48,10 +50,9 @@ const products = [
   },
 ];
 
-const ProductSection = () => {
+const ProductSection = (image) => {
   return (
     <section className="product-section">
-
       {/* Filter */}
       <div className="filter-bar">
         <Funnel size={18} />
@@ -63,8 +64,18 @@ const ProductSection = () => {
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
+        {/* {products.map((product) => {
+          return (
+            <Cards
+              key={product.id}
+              image={product.image}
+              title={product.title}
+              description="Dark Rock Skull Men's Patchwork Hoodie – A bold and stylish hoodie featuring an edgy skull design."
+              price={product.price}
+            />
+          );
+        })} */}
       </div>
-
     </section>
   );
 };
