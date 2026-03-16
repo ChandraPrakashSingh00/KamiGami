@@ -6,6 +6,8 @@ import videoSrc from "../../assets/videos/1.mp4";
 
 import Product from "../../pages/ProductPages/Product";
 import HeroSlider from "../../pages/HeroSlider/HeroSlider";
+import AboutSection from "../../pages/AboutSection/AboutSection";
+import TestimonialSection from "../../pages/TestimonialSection/TestimonialSection";
 
 gsap.registerPlugin(Draggable);
 
@@ -266,6 +268,8 @@ export default function MaskVideo() {
       </div>
     </div>
     <HeroSlider/>
+     <AboutSection/>
+     <TestimonialSection/>
 <Product/>
 
 

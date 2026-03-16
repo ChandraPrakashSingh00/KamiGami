@@ -1,28 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ShoppingCart } from "lucide-react";
 import "../ProductCards/module.css";
+import { CartContext } from "../../Context/CartContext";
 
-const ProductCard = ({ product, addToCart }) => {
+const ProductCard = ({ product }) => {
+  const { cartItems, setCartItems, setIsCartOpen } = useContext(CartContext);
+
   if (!product) return null;
 
+  const handleAddToCart = () => {
+    const existing = cartItems.find((item) => item.id === product.id);
+    if (existing) {
+      const updated = cartItems.map((item) =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+      setCartItems(updated);
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    }
+    setIsCartOpen(true); 
+  };
+
   return (
-    <div className="card">
-      <img src={product.image} alt={product.title} />
+    <div className="product-card">
+      <div className="product-image">
+        <img src={product.image} alt={product.title} />
+      </div>
 
-      <div className="bottom">
-        <div className="bottom-content">
-          <h1>{product.title}</h1>
+      <div className="product-info">
+        <h3 className="product-title">{product.title}</h3>
+        <p className="product-category">{product.category}</p>
+      </div>
 
-          <p>{product.category}</p>
-
-          <div className="price-cart">
-            <span className="price">₹{product.price}</span>
-
-            <button className="cart-btn" onClick={() => addToCart(product)}>
-              <ShoppingCart size={18} />
-            </button>
-          </div>
-        </div>
+      <div className="product-footer">
+        <span className="product-price">₹{product.price}</span>
+        <button className="cart-btn" onClick={handleAddToCart}>
+          <ShoppingCart size={20} />
+        </button>
       </div>
     </div>
   );

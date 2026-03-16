@@ -29,6 +29,30 @@ const products = [
     image:
       "https://images.unsplash.com/photo-1618354691373-d851c5c3a990",
   },
+  {
+    id: 4,
+    title: "Urban Style Hoodie",
+    category: "Men",
+    price: 3899,
+    image:
+      "https://images.unsplash.com/photo-1608234808654-2a8875faa7fd",
+  },
+  {
+    id: 5,
+    title: "Comfort Fit Hoodie",
+    category: "Men",
+    price: 3599,
+    image:
+      "https://images.unsplash.com/photo-1622473590773-f588134b6ce7",
+  },
+  {
+    id: 6,
+    title: "Streetwear Premium Hoodie",
+    category: "Men",
+    price: 4099,
+    image:
+      "https://images.unsplash.com/photo-1544441893-675973e31985",
+  },
 ];
 
 const ProductSection = () => {
@@ -46,7 +70,10 @@ const ProductSection = () => {
 
       const updated = cartItems.map((item) =>
         item.id === product.id
-          ? { ...item, quantity: item.quantity + 1 }
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+            }
           : item
       );
 
@@ -61,18 +88,22 @@ const ProductSection = () => {
 
     }
 
+    
     setIsOpen(true);
   };
 
   return (
     <section className="product-section">
 
+     
       <div className="filter-bar">
         <Funnel size={18} />
         <span>Filter</span>
       </div>
 
+     
       <div className="product-grid">
+
         {products.map((product) => (
           <ProductCard
             key={product.id}
@@ -80,8 +111,10 @@ const ProductSection = () => {
             addToCart={addToCart}
           />
         ))}
+
       </div>
 
+      
       <CartSidebar
         cartItems={cartItems}
         setCartItems={setCartItems}
