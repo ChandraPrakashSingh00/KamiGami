@@ -23,7 +23,7 @@ const ProductDetails = () => {
   const [mainImage, setMainImage] = useState(images[0]);
   const [size, setSize] = useState("M");
 
-  return (
+  return ( 
 
     <>
 

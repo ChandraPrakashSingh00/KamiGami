@@ -8,6 +8,7 @@ import logo from "../../assets/images/Logo.png";
 import StoryIcon from "../../elements/StoryIcon";
 import CartSidebar from "../CartSidebar/CartSidebar"; // ✅ import
 import SearchOverlay from "../Search/SearchBox";
+import AccountDashboard from "../../pages/AccountDashboard/AccountDashboard";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -78,7 +79,8 @@ export default function Navbar() {
             </button>
 
             <Link to="/profile">
-              <User />
+              {/* <User /> */}
+              <AccountDashboard/>
             </Link>
 
             <Link to="/wishlist">
