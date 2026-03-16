@@ -7,11 +7,11 @@ import logo from "../../assets/images/Logo.png";
 import StoryIcon from "../../elements/StoryIcon";
 import CartSidebar from "../CartSidebar/CartSidebar";
 import SearchOverlay from "../Search/SearchBox";
-<<<<<<< HEAD
+
 import AccountDashboard from "../../pages/AccountDashboard/AccountDashboard";
-=======
+
 import { CartContext } from "../../Context/CartContext";
->>>>>>> 37a05d08c3438c29fca781fc9348983179e807af
+
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
