@@ -1,18 +1,21 @@
-import React, { createContext, useContext, useState } from 'react'
+import { createContext, useState } from "react";
 
-export const productDataContext = createContext(null)
+export const ProductDataContext = createContext();
 
-const ProductDataContext = (props) => {
+export const ProductDataProvider = ({ children }) => {
 
-    const [productData, setProductData] = useState([])
+  const [productData, setProductData] = useState([]);
 
-    console.log("Context Data:", productData);
+  console.log("Context Data:", productData);
 
   return (
-    <productDataContext.Provider value={{productData, setProductData}}>
-        {props.children}
-    </productDataContext.Provider>
-  )
-}
-
-export default ProductDataContext
+    <ProductDataContext.Provider
+      value={{
+        productData,
+        setProductData
+      }}
+    >
+      {children}
+    </ProductDataContext.Provider>
+  );
+};

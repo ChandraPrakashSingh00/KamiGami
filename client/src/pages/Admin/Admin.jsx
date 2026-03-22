@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import "./module.css";
-import { productDataContext } from "../../context/ProductDataContext";
+import { ProductDataContext }  from "../../context/ProductDataContext";
 import { customAlphabet } from "nanoid";
 
 const Admin = () => {
-  const { productData, setProductData } = useContext(productDataContext);
+  const { productData, setProductData } = useContext(ProductDataContext);
   const nanoid = customAlphabet("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 8);
 
   console.log(productData);

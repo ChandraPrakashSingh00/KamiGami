@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ShoppingCart } from "lucide-react";
 import "../ProductCards/module.css";
 import { CartContext } from "../../Context/CartContext";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const { cartItems, setCartItems, setIsCartOpen } = useContext(CartContext);
@@ -24,24 +25,42 @@ const ProductCard = ({ product }) => {
   };
 
   return (
+
+  <Link 
+    to={`/all-products/${product.id}`} 
+    className="product-link"
+  >
+
     <div className="product-card">
+
       <div className="product-image">
-        <img src={product.image} alt={product.title} />
+        <img 
+          src={product.image} 
+          alt={product.title} 
+        />
       </div>
 
       <div className="product-info">
-        <h3 className="product-title">{product.title}</h3>
-        <p className="product-category">{product.category}</p>
+        <h3 className="product-title">
+          {product.title}
+        </h3>
+
+        <p className="product-category">
+          {product.category}
+        </p>
       </div>
 
       <div className="product-footer">
-        <span className="product-price">₹{product.price}</span>
-        <button className="cart-btn" onClick={handleAddToCart}>
-          <ShoppingCart size={20} />
-        </button>
+        <span className="product-price">
+          ₹{product.price}
+        </span>
       </div>
+
     </div>
-  );
+
+  </Link>
+
+);
 };
 
 export default ProductCard;
