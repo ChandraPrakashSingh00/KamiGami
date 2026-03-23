@@ -26,39 +26,62 @@ const ProductCard = ({ product }) => {
 
   return (
 
-  <Link 
-    to={`/all-products/${product.id}`} 
-    className="product-link"
-  >
+  <Link
+  to={`/all-products/${product.id}`}
+  className="product-link"
+>
 
-    <div className="product-card">
+  <div className="card">
 
-      <div className="product-image">
-        <img 
-          src={product.image} 
-          alt={product.title} 
-        />
-      </div>
+    {/* Product Image */}
+    <img
+      src={product.image}
+      alt={product.title}
+    />
 
-      <div className="product-info">
-        <h3 className="product-title">
+    {/* Bottom Content */}
+    <div className="bottom">
+
+      <div className="bottom-content">
+
+        {/* Product Title */}
+        <h1>
           {product.title}
-        </h3>
+        </h1>
 
-        <p className="product-category">
+        {/* Category / Description */}
+        <p>
           {product.category}
         </p>
-      </div>
 
-      <div className="product-footer">
-        <span className="product-price">
-          ₹{product.price}
-        </span>
+        {/* Price + Button Row */}
+        <div className="price-cart">
+
+          <p className="product-price">
+            ₹{product.price}
+          </p>
+
+          <button
+            className="add-cart-btn"
+            onClick={(e) => {
+              e.preventDefault(); // important: link navigation stop karega
+              e.stopPropagation();
+              handleAddToCart();
+              // yaha addToCart(product) call kar sakte ho
+            }}
+          >
+            Add To Cart
+          </button>
+
+        </div>
+
       </div>
 
     </div>
 
-  </Link>
+  </div>
+
+</Link>
 
 );
 };
