@@ -1,20 +1,30 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+
 import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import CartSidebar from "./components/CartSidebar/CartSidebar";
+
 import AccountDashboard from "./pages/AccountDashboard/AccountDashboard";
 import ProductDetails from "./pages/ProductDetails/ProductDeatils";
 import Admin from "./pages/Admin/Admin";
-
+import Login from "./pages/Login/Login";
 
 const App = () => {
+
+  const location = useLocation();
+
+  // Jis route pe Navbar/Footer hide karna hai
+  const hideLayoutRoutes = ["/sign-up"];
+
+  const shouldHideLayout =
+    hideLayoutRoutes.includes(location.pathname);
+
   return (
     <>
 
-      
-
-      <Navbar />
+      {/* Navbar */}
+      {!shouldHideLayout && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Hero />} />
@@ -22,16 +32,15 @@ const App = () => {
         <Route path="/userprofile" element={<AccountDashboard />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/all-products/:id" element={<ProductDetails />} />
-        {/* <Route path="/product" element={<ProductDetails />} /> */}
+        <Route path="/sign-up" element={<Login />} />
 
-        <Route path="/cartsidebar" element={< CartSidebar/>} />
-
+        <Route path="/cartsidebar" element={<CartSidebar />} />
       </Routes>
-      <Footer />
 
-      </>
+      {/* Footer */}
+      {!shouldHideLayout && <Footer />}
 
-    
+    </>
   );
 };
 
