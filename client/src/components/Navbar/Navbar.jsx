@@ -47,7 +47,7 @@ export default function Navbar() {
             <Search size={22} />
           </button>
 
-          <Link to="/profile">
+          <Link to="/userprofile">
             <User size={22} />
           </Link>
 
