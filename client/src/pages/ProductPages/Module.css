@@ -34,6 +34,8 @@
   letter-spacing:1px;
 
   transition:0.3s;
+
+  font-family: "bytes", sans-serif;
 }
 
 .filter-bar:hover{

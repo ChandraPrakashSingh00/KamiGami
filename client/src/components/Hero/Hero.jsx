@@ -1,13 +1,13 @@
-import { useEffect, useRef } from "react";
-import "../Hero/hero.css";
-import gsap from "gsap";
-import Draggable from "gsap/dist/Draggable";
-import videoSrc from "../../assets/videos/1.mp4";
+import { useEffect, useRef } from "react"
+import "../Hero/hero.css"
+import gsap from "gsap"
+import Draggable from "gsap/dist/Draggable"
+import videoSrc from "../../assets/videos/14.mp4"
 
-import Product from "../../pages/ProductPages/Product";
-import HeroSlider from "../../pages/HeroSlider/HeroSlider";
-import AboutSection from "../../pages/AboutSection/AboutSection";
-import TestimonialSection from "../../pages/TestimonialSection/TestimonialSection";
+import Product from "../../pages/ProductPages/Product"
+import HeroSlider from "../../pages/HeroSlider/HeroSlider"
+import AboutSection from "../../pages/AboutSection/AboutSection"
+import TestimonialSection from "../../pages/TestimonialSection/TestimonialSection"
 
 gsap.registerPlugin(Draggable);
 

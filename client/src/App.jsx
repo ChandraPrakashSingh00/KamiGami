@@ -9,6 +9,7 @@ import AccountDashboard from "./pages/AccountDashboard/AccountDashboard";
 import ProductDetails from "./pages/ProductDetails/ProductDeatils";
 import Admin from "./pages/Admin/Admin";
 import Login from "./pages/Login/Login";
+import Collections from "./pages/Collections/Collections";
 
 const App = () => {
 
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/sign-up" element={<Login />} />
 
         <Route path="/cartsidebar" element={<CartSidebar />} />
+        <Route path="/collections" element={<Collections />} />
       </Routes>
 
       {/* Footer */}

@@ -298,6 +298,11 @@ align-items:center;
     box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
 }
 
+.empty-cart{
+    font-family: "bytes", sans-serif;
+    margin-left: 20px;
+}
+
 
 
 
