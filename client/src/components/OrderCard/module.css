@@ -1,8 +1,8 @@
 /* ── Order Card ── */
 
 .order-card {
-  background: linear-gradient(145deg, #1a1a2e, #16213e);
-  border: 1px solid rgba(255, 26, 26, 0.08);
+  background:#0D1117;
+
   border-radius: 16px;
   padding: 16px;
   display: flex;

@@ -14,8 +14,8 @@
 /* ── Profile Card ── */
 
 .sidebar-profile-card {
-  background: linear-gradient(145deg, #1a1a2e, #16213e);
-  border: 1px solid rgba(255, 26, 26, 0.12);
+  background: #0D1117;
+  /* border: 1px solid rgba(255, 26, 26, 0.12); */
   border-radius: 16px;
   padding: 32px 24px;
   display: flex;
@@ -23,7 +23,7 @@
   align-items: center;
   text-align: center;
   margin-bottom: 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 26, 26, 0.06);
+  /* box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 26, 26, 0.06); */
 }
 
 .sidebar-avatar-ring {
@@ -31,9 +31,9 @@
   height: 90px;
   border-radius: 50%;
   padding: 3px;
-  background: linear-gradient(135deg, #ff1a1a, #ff4444, #ff1a1a);
+  background: #0D1117;
   margin-bottom: 16px;
-  box-shadow: 0 0 20px rgba(255, 26, 26, 0.3);
+  /* box-shadow: 0 0 20px rgba(255, 26, 26, 0.3); */
 }
 
 .sidebar-avatar {
@@ -89,14 +89,14 @@
 /* ── Navigation ── */
 
 .sidebar-nav {
-  background: linear-gradient(145deg, #1a1a2e, #16213e);
-  border: 1px solid rgba(255, 26, 26, 0.08);
+  background: #0D1117;
+  /* border: 1px solid rgba(255, 26, 26, 0.08); */
   border-radius: 16px;
   padding: 8px;
   display: flex;
   flex-direction: column;
   gap: 2px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  /* box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4); */
 }
 
 .sidebar-nav-item {

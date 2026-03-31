@@ -1,9 +1,15 @@
 /* ── Account Dashboard Page ── */
 
+@font-face {
+  font-family: "bytes";
+  src: url("../../assets/fonts/BYTES.ttf") format("truetype");
+}
+
 .dashboard-page {
   background: #000000;
   min-height: 100vh;
   padding: 100px 0 60px;
+  font-family: "bytes";
 }
 
 .dashboard-container {
@@ -86,11 +92,11 @@
 /* ── Personal Details Card ── */
 
 .details-card {
-  background: linear-gradient(145deg, #1a1a2e, #16213e);
-  border: 1px solid rgba(255, 26, 26, 0.08);
+  background: #0D1117;
+  /* border: 1px solid rgba(255, 26, 26, 0.08); */
   border-radius: 16px;
   padding: 28px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); */
 }
 
 .detail-fields {
@@ -132,8 +138,8 @@
 }
 
 .detail-field input:focus {
-  border-color: rgba(255, 26, 26, 0.4);
-  box-shadow: 0 0 12px rgba(255, 26, 26, 0.08);
+  /* border-color: rgba(255, 26, 26, 0.4); */
+  /* box-shadow: 0 0 12px rgba(255, 26, 26, 0.08); */
 }
 
 .update-profile-btn {
@@ -149,11 +155,11 @@
   letter-spacing: 0.5px;
 }
 
-.update-profile-btn:hover {
+/* .update-profile-btn:hover {
   background: #e61616;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(255, 26, 26, 0.35);
-}
+} */
 
 /* ── Addresses Grid ── */
 
