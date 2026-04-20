@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
-import "./AboutSection.css";
+import "./module.css";
 
 const AboutSection = () => {
   return (
