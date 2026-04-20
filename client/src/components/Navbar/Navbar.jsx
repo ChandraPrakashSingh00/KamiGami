@@ -12,11 +12,9 @@ import AccountDashboard from "../../pages/AccountDashboard/AccountDashboard";
 
 import { CartContext } from "../../Context/CartContext";
 
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-
 
   const { cartItems, isCartOpen, setIsCartOpen } = useContext(CartContext);
 
@@ -76,9 +74,8 @@ export default function Navbar() {
               <Search />
             </button>
 
-            <Link to="/profile">
-              {/* <User /> */}
-              <AccountDashboard/>
+            <Link to="/userprofile">
+              <User />
             </Link>
 
             <Link to="/wishlist">
@@ -92,7 +89,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-    
       <CartSidebar
         cartItems={cartItems}
         setCartItems={() => {}}
