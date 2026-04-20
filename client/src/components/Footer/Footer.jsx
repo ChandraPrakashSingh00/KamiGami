@@ -1,4 +1,3 @@
-import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
 import "../Footer/module.css";
 
 const Footer = () => {
@@ -16,23 +15,6 @@ const Footer = () => {
           />
         </div>
 
-        {/* Social Icons */}
-        <div className="social-icons">
-
-          <div className="social-icon">
-            <FaInstagram size={18} />
-          </div>
-
-          <div className="social-icon">
-            <FaFacebookF size={18} />
-          </div>
-
-          <div className="social-icon">
-            <FaTwitter size={18} />
-          </div>
-
-        </div>
-
       </div>
 
       {/* Divider */}
@@ -40,9 +22,7 @@ const Footer = () => {
 
       {/* Brand Text */}
       <div className="footer-brand">
-
         <h1>KAMIGAMI</h1>
-
       </div>
 
     </footer>
