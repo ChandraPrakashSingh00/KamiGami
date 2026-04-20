@@ -1,12 +1,13 @@
-import { useEffect, useRef } from "react"
-import "../Hero/hero.css"
-import gsap from "gsap"
-import Draggable from "gsap/dist/Draggable"
-import videoSrc from "../../assets/videos/14.mp4"
+import { useEffect, useRef } from "react";
+import "../Hero/hero.css";
+import gsap from "gsap";
+import Draggable from "gsap/dist/Draggable";
+import videoSrc from "../../assets/videos/14.mp4";
 
-import Product from "../../pages/ProductPages/Product"
-import HeroSlider from "../../pages/HeroSlider/HeroSlider"
-import AboutSection from "../../pages/AboutSection/AboutSection"
+import Product from "../../pages/ProductPages/Product";
+import HeroSlider from "../../pages/HeroSlider/HeroSlider";
+import AboutSection from "../../pages/AboutSection/AboutSection";
+import TestimonialSection from "../../pages/TestimonialSection/TestimonialSection";
 
 gsap.registerPlugin(Draggable);
 
@@ -231,48 +232,44 @@ export default function MaskVideo() {
   };
 
   return (
-
     <>
-    <div ref={heroRef} className="hero">
-      <div className="hero-corners"></div>
-      
-      <video
-        ref={videoRef}
-        // src={videoSrc}
-        muted
-        loop
-        style={{ display: "none" }}
-      />
+      <div ref={heroRef} className="hero">
+        <div className="hero-corners"></div>
 
-      {boxes.map((box, i) => (
-        <div
-          key={i}
-          ref={addMaskRef}
-          className="mask-box"
-          style={{
-            width: box.width,
-            height: box.height,
-          }}
-        >
-          <div className="corners"></div>
-          <div className="coord-label">X: 0 Y: 0</div>
-          <canvas />
+        <video
+          ref={videoRef}
+          // src={videoSrc}
+          muted
+          loop
+          style={{ display: "none" }}
+        />
+
+        {boxes.map((box, i) => (
+          <div
+            key={i}
+            ref={addMaskRef}
+            className="mask-box"
+            style={{
+              width: box.width,
+              height: box.height,
+            }}
+          >
+            <div className="corners"></div>
+            <div className="coord-label">X: 0 Y: 0</div>
+            <canvas />
+          </div>
+        ))}
+
+        <div className="cursor-coords">
+          <div className="coord-x">X: 0px</div>
+          <div className="coord-y">Y: 0px</div>
+          <div className="coord-grab">Grab</div>
         </div>
-      ))}
-
-      <div className="cursor-coords">
-        <div className="coord-x">X: 0px</div>
-        <div className="coord-y">Y: 0px</div>
-        <div className="coord-grab">Grab</div>
       </div>
-    </div>
-    <HeroSlider/>
-    <AboutSection/>
- 
-<Product/>
-
-
-
+      <HeroSlider />
+      <AboutSection />
+        <TestimonialSection/>
+      <Product />
     </>
   );
 }
