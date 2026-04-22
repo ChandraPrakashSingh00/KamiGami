@@ -1,14 +1,12 @@
-// import React from 'react'
-import "../components/Navbar/navbar.css"
 import Logo from "../assets/images/Logo.png"
 
 const StoryIcon = () => {
   return (
-   <div className="stotyIcon">
-    <div className="outer">
-        <img src={Logo} alt="" />
+    <div className="storyIcon">
+      <div className="outer">
+        <img src={Logo} alt="stories" />
+      </div>
     </div>
-   </div>
   )
 }
 

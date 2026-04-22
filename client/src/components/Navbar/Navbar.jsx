@@ -1,22 +1,32 @@
 // src/components/Navbar/Navbar.jsx
 import { useState, useContext } from "react";
 import "./navbar.css";
-import { MapPin, Search, User, Heart, ShoppingCart, Menu } from "lucide-react";
+import {
+  MapPin,
+  Search,
+  User,
+  Heart,
+  ShoppingCart,
+  Menu,
+  X,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/Logo.png";
 import StoryIcon from "../../elements/StoryIcon";
 import CartSidebar from "../CartSidebar/CartSidebar";
 import SearchOverlay from "../Search/SearchBox";
-
-import AccountDashboard from "../../pages/AccountDashboard/AccountDashboard";
-
 import { CartContext } from "../../Context/CartContext";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-
   const { cartItems, isCartOpen, setIsCartOpen } = useContext(CartContext);
+
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const toggleDropdown = (name) => {
+    setOpenDropdown(openDropdown === name ? null : name);
+  };
 
   return (
     <>
@@ -36,58 +46,148 @@ export default function Navbar() {
           <Link to="/stories">
             <StoryIcon />
           </Link>
-
           <Link to="/location">
             <MapPin size={22} />
           </Link>
-
           <button onClick={() => setSearchOpen(true)}>
             <Search size={22} />
           </button>
-
           <Link to="/userprofile">
             <User size={22} />
           </Link>
-
           <Link to="/wishlist">
             <Heart size={22} />
           </Link>
-
           <button onClick={() => setIsCartOpen(true)}>
             <ShoppingCart size={22} />
           </button>
         </div>
 
-        <div className="mobile-menu">
-          <Menu size={28} onClick={() => setOpen(!open)} />
-        </div>
-
-        <div className={`mobile-nav ${open ? "active" : ""}`}>
-          <Link to="/new">New In</Link>
-          <Link to="/collections">Collections</Link>
-          <div className="mobile-icons">
-            <Link to="/location">
-              <MapPin />
-            </Link>
-
-            <button onClick={() => setSearchOpen(true)}>
-              <Search />
-            </button>
-
-            <Link to="/userprofile">
-              <User />
-            </Link>
-
-            <Link to="/wishlist">
-              <Heart />
-            </Link>
-
-            <button onClick={() => setIsCartOpen(true)}>
-              <ShoppingCart />
-            </button>
-          </div>
+        {/* Mobile: hamburger OR close icon */}
+        <div className="mobile-menu" onClick={() => setOpen(!open)}>
+          {open ? <X size={28} /> : <Menu size={28} />}
         </div>
       </nav>
+
+      {/* Full-page mobile overlay */}
+      <div className={`mobile-overlay ${open ? "active" : ""}`}>
+        <div className="mobile-overlay-inner">
+          {/* Top section — primary nav links */}
+          <div className="mobile-overlay-top">
+
+  {/* New Arrivals — simple link, no dropdown */}
+  <Link to="/new" className="overlay-link" onClick={() => setOpen(false)}>
+    New Arrivals
+  </Link>
+
+  {/* Collections — dropdown */}
+  <div className="overlay-dropdown">
+    <button
+      className="overlay-dropdown-trigger"
+      onClick={() => toggleDropdown("collections")}
+    >
+      Shop by collection
+      <span className={`dropdown-arrow ${openDropdown === "collections" ? "open" : ""}`}>
+        ▾
+      </span>
+    </button>
+    <div className={`overlay-dropdown-menu ${openDropdown === "collections" ? "open" : ""}`}>
+      <Link to="/collections/men" onClick={() => setOpen(false)}>Men</Link>
+      <Link to="/collections/women" onClick={() => setOpen(false)}>Women</Link>
+      <Link to="/collections/unisex" onClick={() => setOpen(false)}>Unisex</Link>
+      <Link to="/collections/limited" onClick={() => setOpen(false)}>Limited Edition</Link>
+    </div>
+  </div>
+
+  {/* Iconics — dropdown */}
+  <div className="overlay-dropdown">
+    <button
+      className="overlay-dropdown-trigger"
+      onClick={() => toggleDropdown("iconics")}
+    >
+      Shop by category
+      <span className={`dropdown-arrow ${openDropdown === "iconics" ? "open" : ""}`}>
+        ▾
+      </span>
+    </button>
+    <div className={`overlay-dropdown-menu ${openDropdown === "iconics" ? "open" : ""}`}>
+      <Link to="/iconics/tshirts" onClick={() => setOpen(false)}>The Awakening</Link>
+      {/* <Link to="/iconics/hoodies" onClick={() => setOpen(false)}>Hoodies</Link>
+      <Link to="/iconics/caps" onClick={() => setOpen(false)}>Caps</Link> */}
+    </div>
+  </div>
+
+  {/* Summer Collection — dropdown */}
+  <div className="overlay-dropdown">
+    <button
+      className="overlay-dropdown-trigger"
+      onClick={() => toggleDropdown("summer")}
+    >
+      Summer Collection
+      <span className={`dropdown-arrow ${openDropdown === "summer" ? "open" : ""}`}>
+        ▾
+      </span>
+    </button>
+    <div className={`overlay-dropdown-menu ${openDropdown === "summer" ? "open" : ""}`}>
+      <Link to="/summer/tops" onClick={() => setOpen(false)}>Tops</Link>
+      <Link to="/summer/shorts" onClick={() => setOpen(false)}>Shorts</Link>
+      <Link to="/summer/accessories" onClick={() => setOpen(false)}>Accessories</Link>
+    </div>
+  </div>
+
+</div>
+
+          {/* Divider */}
+          <div className="mobile-overlay-divider" />
+
+          {/* Secondary links */}
+          <div className="mobile-overlay-secondary">
+            <Link to="/stories" onClick={() => setOpen(false)}>
+              Top
+            </Link>
+            <Link to="/location" onClick={() => setOpen(false)}>
+              Bottom
+            </Link>
+            <Link to="/userprofile" onClick={() => setOpen(false)}>
+              Accessories
+            </Link>
+            <Link to="/wishlist" onClick={() => setOpen(false)}>
+              Shop by color
+            </Link>
+            <Link to="/wishlist" onClick={() => setOpen(false)}>
+              Support
+            </Link>
+          </div>
+
+          {/* Bottom icons row */}
+          <div className="mobile-overlay-icons">
+            <button
+              onClick={() => {
+                setSearchOpen(true);
+                setOpen(false);
+              }}
+            >
+              Stories
+            </button>
+            <button
+              onClick={() => {
+                setIsCartOpen(true);
+                setOpen(false);
+              }}
+            >
+              Cart
+            </button>
+          </div>
+
+          {/* Close label */}
+          <button
+            className="mobile-overlay-close"
+            onClick={() => setOpen(false)}
+          >
+            Close
+          </button>
+        </div>
+      </div>
 
       <CartSidebar
         cartItems={cartItems}
@@ -95,7 +195,6 @@ export default function Navbar() {
         isOpen={isCartOpen}
         setIsOpen={setIsCartOpen}
       />
-
       <SearchOverlay isOpen={searchOpen} setIsOpen={setSearchOpen} />
     </>
   );
