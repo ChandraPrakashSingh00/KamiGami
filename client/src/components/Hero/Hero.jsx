@@ -268,7 +268,7 @@ export default function MaskVideo() {
       </div>
       <HeroSlider />
       <AboutSection />
-        <TestimonialSection/>
+        {/* <TestimonialSection/> */}
       <Product />
     </>
   );

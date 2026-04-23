@@ -167,7 +167,7 @@ export default function Navbar() {
                 setOpen(false);
               }}
             >
-              Stories
+              Search
             </button>
             <button
               onClick={() => {
