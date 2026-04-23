@@ -10,6 +10,7 @@ import ProductDetails from "./pages/ProductDetails/ProductDeatils";
 import Admin from "./pages/Admin/Admin";
 import Login from "./pages/Login/Login";
 import Collections from "./pages/Collections/Collections";
+import MainContainer from "./components/Main Container/MainContainer";
 
 const App = () => {
 
@@ -28,7 +29,7 @@ const App = () => {
       {!shouldHideLayout && <Navbar />}
 
       <Routes>
-        <Route path="/" element={<Hero />} />
+        <Route path="/" element={<MainContainer/>} />
 
         <Route path="/userprofile" element={<AccountDashboard />} />
         <Route path="/admin" element={<Admin />} />
