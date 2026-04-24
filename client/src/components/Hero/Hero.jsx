@@ -266,10 +266,7 @@ export default function MaskVideo() {
           <div className="coord-grab">Grab</div>
         </div>
       </div>
-      {/* <HeroSlider />
-      <AboutSection />
-      <TestimonialSection />
-      <Product /> */}
+    
     </>
   );
 }
