@@ -5,36 +5,34 @@ import "./module.css";
 const AboutSection = () => {
   return (
     <section className="about-section">
-      
+
       <div className="about-container">
 
-        {/* LEFT SIDE */}
+        
         <div className="left-section">
 
-          {/* HERO CARD */}
+          
           <div className="hero-card">
-            
             <div className="hero-overlay"></div>
 
-            <div>
-              <h2 className="hero-title">
+            <div className="hero-content">
+              <h2>
                 Uncover Your <br /> Stylish Identity
               </h2>
 
-              <p className="hero-text">
+              <p>
                 Step into a World of High-Quality, Fashion-forward Design.
                 From Casual Chic to Elevated Elegance.
               </p>
             </div>
 
             <div className="shop-btn">
-              SHOP <br /> NOW
+              <span>SHOP <br /> NOW</span>
             </div>
           </div>
 
-          {/* BOTTOM CARDS */}
+         
           <div className="card-grid">
-
             {[
               {
                 img: "https://images.unsplash.com/photo-1520975661595-6453be3f7070",
@@ -65,9 +63,10 @@ const AboutSection = () => {
               </div>
             ))}
           </div>
+
         </div>
 
-        {/* RIGHT SIDE */}
+        
         <div className="right-section">
           <img
             src="https://i5.walmartimages.com/seo/Cute-Hoodies-for-Teen-Girls-Trendy-Waffle-Hooded-Sweatshirts-Oversized-Long-Sleeve-Sweater-Tween-Girl-Clothes-With-Pocket_f5eaaedd-a0b2-4298-ad86-ecb4e60e4665.3f912967cc120203881ec023922d10b1.jpeg"
@@ -76,13 +75,13 @@ const AboutSection = () => {
 
           <div className="image-overlay"></div>
 
-          {/* SOCIAL ICONS */}
           <div className="social-icons">
             <div>fb</div>
             <div>tw</div>
             <div>in</div>
           </div>
         </div>
+
       </div>
     </section>
   );
