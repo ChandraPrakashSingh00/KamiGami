@@ -356,8 +356,9 @@
     /* only flex on mobile */
   }
 
-  .navbar {
+   .navbar {
     padding: 0 20px;
+    background-color: transparent; /* ← only change needed */
   }
 
   .nav-center {
@@ -369,4 +370,105 @@
 /* Remove old .mobile-nav styles if present */
 .mobile-nav {
   display: none !important;
+}
+
+/* ─── BOTTOM NAV — Mobile Only ─────────────────────────────── */
+
+.bottom-nav {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .bottom-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 200;
+    width: auto;
+  }
+
+  /* Red rounded pill */
+  /* Red rounded pill */
+  .bottom-nav-pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  border-radius: 9999px;
+  padding: 8px 24px;
+  background: transparent;
+  border: none;
+  z-index: 0;
+}
+
+/* inner glow border — liquid glass highlight */
+.bottom-nav-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: 9999px;
+  pointer-events: none;
+  box-shadow: 
+    inset 2px 2px 0px -2px rgba(231, 30, 34, 0.9),
+    inset 0 0 3px 1px rgba(231, 30, 34, 0.6),
+    inset 0 0 20px rgba(231, 30, 34, 0.15);
+  background-color: rgba(231, 30, 34, 0.12);
+}
+
+/* backdrop blur + liquid displacement */
+.bottom-nav-pill::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: 9999px;
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  filter: url(#btn-glass);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+  .bottom-nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    padding: 6px;
+    border-radius: 50%;
+    transition: background 0.2s;
+  }
+
+  .bottom-nav-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  /* StoryIcon outside pill */
+  .bottom-nav-story {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  body {
+    padding-bottom: 100px;
+  }
 }

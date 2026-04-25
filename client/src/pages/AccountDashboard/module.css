@@ -92,11 +92,9 @@
 /* ── Personal Details Card ── */
 
 .details-card {
-  background: #0D1117;
-  /* border: 1px solid rgba(255, 26, 26, 0.08); */
+  background: #0d1117;
   border-radius: 16px;
   padding: 28px;
-  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); */
 }
 
 .detail-fields {
@@ -135,11 +133,7 @@
   font-size: 0.88rem;
   transition: border-color 0.2s ease;
   outline: none;
-}
-
-.detail-field input:focus {
-  /* border-color: rgba(255, 26, 26, 0.4); */
-  /* box-shadow: 0 0 12px rgba(255, 26, 26, 0.08); */
+  font-family: "bytes";
 }
 
 .update-profile-btn {
@@ -153,13 +147,8 @@
   cursor: pointer;
   transition: all 0.25s ease;
   letter-spacing: 0.5px;
+  width: 100%; /* ← full width on all screens, looks cleaner */
 }
-
-/* .update-profile-btn:hover {
-  background: #e61616;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(255, 26, 26, 0.35);
-} */
 
 /* ── Addresses Grid ── */
 
@@ -177,43 +166,98 @@
   gap: 12px;
 }
 
-/* ── Responsive ── */
-
-@media (max-width: 1100px) {
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+/* ── TABLET (max 900px) ── */
 
 @media (max-width: 900px) {
   .dashboard-container {
     flex-direction: column;
-    padding: 0 20px;
+    padding: 0 24px;
   }
 
   .dashboard-page {
-    padding: 100px 0 40px;
+    padding: 90px 0 40px;
+  }
+
+  .dashboard-main {
+    width: 100%;
+    gap: 28px;
   }
 
   .section-title::before {
     display: none;
   }
-}
 
-@media (max-width: 600px) {
   .stats-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr); /* 2 cols on tablet */
+    gap: 14px;
+  }
+
+  .details-card {
+    padding: 20px;
   }
 
   .detail-fields {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr); /* side by side on tablet */
   }
 
   .addresses-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── MOBILE (max 600px) ── */
+
+@media (max-width: 600px) {
+  .dashboard-container {
+    padding: 0 16px;
+  }
+
+  .dashboard-page {
+    padding: 80px 0 40px;
+  }
+
+  .dashboard-main {
+    gap: 24px;
   }
 
   .dashboard-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .dashboard-subtitle {
+    font-size: 0.82rem;
+  }
+
+  .section-title {
+    font-size: 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr); /* keep 2 cols on mobile too */
+    gap: 10px;
+  }
+
+  .details-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .detail-fields {
+    grid-template-columns: 1fr; /* stack on mobile */
+    gap: 14px;
+  }
+
+  .detail-field input {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .addresses-grid {
+    grid-template-columns: 1fr; /* stack on mobile */
+  }
+
+  .update-profile-btn {
+    padding: 11px 24px;
+    font-size: 0.85rem;
   }
 }

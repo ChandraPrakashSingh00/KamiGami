@@ -9,7 +9,9 @@ import TestimonialSection from '../../pages/TestimonialSection/TestimonialSectio
 const MainContainer = () => {
   return (
     <div>
-      <Hero/>
+      <div className="hide-on-mobile">
+        <Hero/>
+      </div>
       <HeroSlider/>
       <Product/>
       <TestimonialSection/>
