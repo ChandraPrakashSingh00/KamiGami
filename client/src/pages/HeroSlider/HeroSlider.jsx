@@ -7,21 +7,21 @@ const slides = [
     title: "Hoodies",
     subtitle: "Shop Now",
     image:
-      "https://schoolprintworld.co.uk/wp-content/uploads/2024/08/Hoodies-Banner-2025-scaled.webp",
+      "https://i.pinimg.com/736x/81/cf/0a/81cf0ae5207c5af67de47a418b1fe6ef.jpg",
   },
   {
     id: 2,
     title: "New Collection",
     subtitle: "Discover",
     image:
-      "https://img.freepik.com/premium-photo/stylish-hoodie-mockup-boutique-banner-with-close-up-shot-generated-by-ai_1020799-6212.jpg",
+      "https://i.pinimg.com/736x/b0/df/44/b0df44b19351f3e5ea54f6d82c7e0f21.jpg",
   },
   {
     id: 3,
     title: "Street Wear",
     subtitle: "Shop Now",
     image:
-      "https://schoolprintworld.co.uk/wp-content/uploads/2025/08/Hoodies-Banner-2026-scaled.webp",
+      "https://i.pinimg.com/1200x/77/07/c7/7707c7bc64430185043adc06d26a09b7.jpg",
   },
 ];
 
