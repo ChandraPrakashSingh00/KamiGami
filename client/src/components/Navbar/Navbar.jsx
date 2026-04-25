@@ -9,8 +9,10 @@ import {
   ShoppingCart,
   Menu,
   X,
-  Compass
+  Compass,
 } from "lucide-react";
+
+import { Sling as Hamburger } from 'hamburger-react'
 
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/Logo.png";
@@ -66,8 +68,14 @@ export default function Navbar() {
         </div>
 
         {/* Mobile: hamburger OR close icon */}
-        <div className="mobile-menu" onClick={() => setOpen(!open)}>
-          {open ? <X size={28} /> : <Menu size={28} />}
+        <div className="mobile-menu">
+          <Hamburger
+            toggled={open}
+            toggle={setOpen}
+            size={24}
+            color="#E71E22"
+            duration={0.4}
+          />
         </div>
       </nav>
 
@@ -238,10 +246,7 @@ export default function Navbar() {
           <Link to="/userprofile" className="bottom-nav-item">
             <User size={22} />
           </Link>
-          <Link
-            className="bottom-nav-item"
-            onClick={() => setSearchOpen(true)}
-          >
+          <Link className="bottom-nav-item" onClick={() => setSearchOpen(true)}>
             <Search size={22} />
           </Link>
           <button
@@ -253,10 +258,7 @@ export default function Navbar() {
         </div>
 
         {/* Story icon outside the pill */}
-        
       </div>
-
-      
     </>
   );
 }
