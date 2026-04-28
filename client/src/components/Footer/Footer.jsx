@@ -1,32 +1,78 @@
-import "../Footer/module.css";
+import React from "react";
 
-const Footer = () => {
+import "./Module.css"
+
+// ─── Edit your links here ───────────────────────────────────────────
+const LINKS = {
+  connectWithUs: [
+    { label: "Call", href: "#" },
+    { label: "Text (WhatsApp)", href: "#" },
+    { label: "Instagram", href: "#" },
+    { label: "YouTube", href: "#" },
+    { label: "LinkedIn", href: "#" },
+  ],
+  orderSupport: [
+    { label: "Make a return/Exchange", href: "#" },
+    { label: "Refund/Exchange policy", href: "#" },
+    { label: "Track your order", href: "#" },
+    { label: "Shipping policy", href: "#" },
+    { label: "FAQ's", href: "#" },
+    { label: "Terms", href: "#" },
+  ],
+  weAreKAMIGAMI: [
+    { label: "Our story", href: "#" },
+    { label: "Walk-in Stores", href: "#" },
+    { label: "Collaborations", href: "#" },
+    { label: "Careers", href: "#" },
+    { label: "Media", href: "#" },
+    { label: "Blogs", href: "#" },
+  ],
+};
+// ────────────────────────────────────────────────────────────────────
+
+function LinkColumn({ title, links }) {
   return (
-    <footer className="footer">
+    <div className="footer-col">
+      <h4>{title}</h4>
+      <ul>
+        {links.map((link) => (
+          <li key={link.label}>
+            <a href={link.href}>{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
-      {/* Top Row */}
-      <div className="footer-top">
+export default function KamigamiFooter() {
+  return (
+    <>
+      <footer className="footer-root">
 
-        {/* Google Play Button */}
-        <div className="playstore-btn">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-            alt="Google Play"
-          />
+        {/* Top bar */}
+        
+
+        {/* Links grid */}
+        <div className="footer-links-grid">
+          <LinkColumn title="Connect with us" links={LINKS.connectWithUs} />
+          <LinkColumn title="Order Support" links={LINKS.orderSupport} />
+          <LinkColumn title="We are KAMIGAMI" links={LINKS.weAreKAMIGAMI} />
         </div>
 
-      </div>
+        {/* Faded divider */}
+        <div className="faded-divider" />
 
-      {/* Divider */}
-      <div className="footer-divider"></div>
+        {/* Giant brand name */}
+        <div className="footer-brand-bar">
+          <span className="brand-text">KAMIGAMI</span>
+        </div>
 
-      {/* Brand Text */}
-      <div className="footer-brand">
-        <h1>KAMIGAMI</h1>
-      </div>
+        <div className="footer-bottom-note">
+          © 2025 KAMIGAMI. ALL RIGHTS RESERVED.
+        </div>
 
-    </footer>
+      </footer>
+    </>
   );
-};
-
-export default Footer;
+}

@@ -3,11 +3,14 @@
     src: url("../../assets/fonts/BYTES.ttf") format("truetype");
 }
 
+
+
 .testimonial-section {
     background: black;
     padding: 80px 20px;
     overflow: hidden;
     font-family: "bytes", sans-serif;
+    
 }
 
 .testimonial-title {
